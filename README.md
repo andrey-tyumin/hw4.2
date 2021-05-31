@@ -67,13 +67,17 @@ for result in result_os.split('\n'):
 
 import os
 import sys
-
-if not os.path.exists(sys.argv[1] + '/.git'):
+indir = ''
+if len(sys.argv) == 1:
+    indir = os.getcwd()
+else:
+    indir = sys.argv[1]
+if not os.path.exists(indir + '/.git'):
     print('No local repository! ')
     sys.exit(0)
 
-bash_command = ["cd {}".format(sys.argv[1]), "git status -uall"]
-result_os = sys.argv[1] + '\n' + os.popen(' && '.join(bash_command)).read()
+bash_command = ["cd {}".format(indir), "git status -uall"]
+result_os = indir + '\n' + os.popen(' && '.join(bash_command)).read()
 is_change = False
 for result in result_os.split('\n'):
     if result.find('modified') != -1:
