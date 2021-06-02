@@ -46,11 +46,12 @@ for result in result_os.split('\n'):
 import os
 
 bash_command = ["cd ~/netology/sysadm-homeworks", "git status -uall"]
-result_os = os.getcwd()+'\n' + os.popen(' && '.join(bash_command)).read()
+result_os = os.popen(' && '.join(bash_command)).read()
 is_change = False
+
 for result in result_os.split('\n'):
-    if result.find('modified') != -1:
-        prepare_result = result.replace('\tmodified:   ', '')
+    if (result.find('modified')) != -1:
+        prepare_result = result.replace('\tmodified:      ', '\tmodified:      ~/netology/sysadm-homeworks')
         print(prepare_result)
         break
 ```
