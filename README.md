@@ -45,15 +45,14 @@ for result in result_os.split('\n'):
 
 import os
 
-bash_command = ["cd ~/netology/sysadm-homeworks", "git status -uall"]
+giton ="/home/andrey/gittest2/1st/"
+bash_command = ["cd "+giton, "git ls-files --modified"]
 result_os = os.popen(' && '.join(bash_command)).read()
-is_change = False
 
+print("Modified files:")
 for result in result_os.split('\n'):
-    if (result.find('modified')) != -1:
-        prepare_result = result.replace('\tmodified:      ', '\tmodified:      ~/netology/sysadm-homeworks')
-        print(prepare_result)
-        break
+    if result == "": continue
+    print(giton+result)
 ```
 ---
 
