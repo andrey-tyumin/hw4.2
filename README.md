@@ -45,7 +45,7 @@ for result in result_os.split('\n'):
 
 import os
 
-giton ="/home/andrey/gittest2/1st/"
+giton ="~/netology/sysadm-homeworks"
 bash_command = ["cd "+giton, "git ls-files --modified"]
 result_os = os.popen(' && '.join(bash_command)).read()
 
